@@ -1,4 +1,4 @@
-package tasque4;
+package second.lab.tasque4;
 
 public class Shape {
     private double volume;

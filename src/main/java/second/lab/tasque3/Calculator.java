@@ -1,4 +1,4 @@
-package tasque3;
+package second.lab.tasque3;
 
 public class Calculator {
     static int add(int a, int b) {
