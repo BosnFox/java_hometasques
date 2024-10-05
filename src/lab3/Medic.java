@@ -1,6 +1,6 @@
 package lab3;
 
-public class Medic extends Mercenary {
+public class Medic extends Mercenary implements ITaunt {
     public Medic(String name) {
         super(name);
         this.name = name;
@@ -15,6 +15,23 @@ public class Medic extends Mercenary {
     }
 
     public void heal(Mercenary teammate) {
-        teammate.takeHealth(25, this.name);
+        if (teammate.is_dead == false) {
+            teammate.takeHealth(25, this.name);
+        } else {
+            System.out.println(teammate.name + " respawns at (0, 0), reason: " + this.name);
+            teammate.is_dead = false;
+            teammate.current_health = teammate.health;
+        }
+    }
+
+    @Override
+    public void Taunt() {
+        if (this.is_dead == false) {
+            {
+                System.out.println(this.name + " goes \"Oops, that was not " +
+                        "medicine\" on " + ((this.last_victim.equals("")) ? "someone" : this.last_victim));
+                this.last_victim = "";
+            }
+        }
     }
 }
