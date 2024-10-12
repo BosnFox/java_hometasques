@@ -12,7 +12,7 @@ public class Heavy extends Mercenary implements ITaunt {
         this.primary_attack = 25;
         this.max_speed = 5;
         this.overheal = 150;
-        this.current_class = "soldier";
+        this.current_class = "heavy";
     }
 
     @Override

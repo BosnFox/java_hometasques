@@ -4,8 +4,9 @@ class Cylinder extends Shape {
 
     private double volume;
     private double height;
-    public Cylinder (double volume, double height) {
-        super(volume);
+
+    public Cylinder(double volume, double height) {
+        //super(volume);
         this.volume = volume;
         this.height = height;
     }

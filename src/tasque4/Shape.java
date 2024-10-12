@@ -1,15 +1,13 @@
 package tasque4;
 
-public class Shape {
-    private double volume;
+public abstract class Shape {
+//    private double volume;
 
-    public Shape(double volume) {
-        this.volume = volume;
-    }
+    //public Shape(double volume) {
+//        this.volume = volume;
+//    }
 
-    public double getVolume() {
-        return volume;
-    }
+    public abstract double getVolume();
 }
 
 

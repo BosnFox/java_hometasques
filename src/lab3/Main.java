@@ -14,6 +14,5 @@ public class Main {
         warrior.Taunt();
         priest.Taunt();
         priest.heal(mage);
-
     }
 }
