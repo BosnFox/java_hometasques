@@ -9,7 +9,7 @@ public class DictionaryStatistic {
     private int maxWordLength;
     private int minWordLength;
     private Set<Character> alphabet;
-    private Map<String, Integer> frequency = new HashMap<>();
+    private Map<Character, Integer> frequency = new HashMap<>();
 
     //абвгдежзийклмнопрстуфхцчшщъыьэюя
 
@@ -20,7 +20,7 @@ public class DictionaryStatistic {
         this.maxWordLength = words.get(0).length();
         this.minWordLength = maxWordLength;
         this.polindrom = 0;
-        for (String i : "а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я".split(" ")) {
+        for (char i : "абвгдежзийклмнопрстуфхцчшщъыьэюя".toCharArray()) {
             // System.out.println(i);
             this.frequency.put(i, 0);
         }
@@ -40,7 +40,7 @@ public class DictionaryStatistic {
     }
 
     private void LetterCount(String word) {
-        for (String i : word.split("")) {
+        for (char i : word.toCharArray()) {
             if (frequency.containsKey(i)) {
                 this.frequency.put(i, this.frequency.get(i) + 1);
             }
@@ -52,7 +52,7 @@ public class DictionaryStatistic {
     }
 
     public void printSymbolsStat() {
-        for (String i : this.frequency.keySet()) {
+        for (char i : this.frequency.keySet()) {
             System.out.println(i + " - " + this.frequency.get(i));
         }
     }

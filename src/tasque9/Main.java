@@ -37,40 +37,25 @@ public class Main {
         long startTime = System.currentTimeMillis();
         while (startTime + secs * 1000 > System.currentTimeMillis()) {
             String curr = skanna.getRandomWord();
-            while (curr.length() >= 9) {
-                curr = skanna.getRandomWord();
+            System.out.println(TotalAttempts == 0 ? "Write that: " + curr + "!" : "And that: " + curr + "!");
+            String attempt = scanner1.nextLine();
+            if (System.currentTimeMillis() < startTime + secs * 1000) {
+                    if (attempt.equals(curr)) {
+                        Guesses++;
+                        System.out.println("Correct!");
+                    } else {
+                        System.out.println("Not really...");
+                    }
+                    TotalAttempts++;
+                    symbols += attempt.length();
             }
-            System.out.println(TotalAttempts == 0 ? "Guess the word, length: " + curr.length() + "!" : "Guess another word, length: " + curr.length() + "!");
-            boolean guessed = false;
-            int total = 1;
-            System.out.println(curr.substring(0, total) + "[...]");
-            boolean lastAttempt = false;
-            while (!guessed) {
-                String attempt = scanner1.nextLine();
-                if (attempt.equals(curr)) {
-                    Guesses ++;
-                    guessed = true;
-                    System.out.println("Correct, it was " + curr);
-                } else {
-                    if (!(lastAttempt)) {
-                        total += 2;
-                        System.out.println("Nope, it's " + curr.substring(0, Math.min(curr.length(), total)) + "[...]");
-                        if (Math.min(curr.length(), total) == curr.length()) {
-                            lastAttempt = true;
-                        }
-                    }
-                    else {
-                        System.out.println("Nope");
-                        guessed = true;
-                    }
-                }
-                TotalAttempts++;
-                symbols += attempt.length();
+            else {
+                System.out.println("Sorry m8");
             }
         }
-        System.out.println("Time's up\nTotal attempts: " + TotalAttempts +
-                "\nGuessed: " + Guesses + "\nAccuracy: " + (Guesses * 100 / (TotalAttempts)) + "%" + "\nAverage Speed: circa "
-        + symbols / secs + " per second");
+        System.out.println("Time's up\nTotal words: " + TotalAttempts +
+                "\nTyped correct: " + Guesses + "\nAccuracy: " + (Guesses * 100 / (TotalAttempts)) + "%" + "\nAverage Speed: circa "
+                + (float)(symbols / secs) + " per second");
         scanner1.close();
     }
 }

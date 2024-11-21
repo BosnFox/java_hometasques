@@ -12,7 +12,7 @@ public class ShopItem implements Comparable<ShopItem> {
     }
 
     @Override
-    public int compareTo(ShopItem o) {
+    public int compareTo(ShopItem o) { // TODO alefbet sort first
         if (this.itemPrice < o.itemPrice) {
             return -1;
         }
@@ -41,9 +41,16 @@ public class ShopItem implements Comparable<ShopItem> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof ShopItem) {
-            ShopItem shopItem = (ShopItem) obj;
-            return getItemName().equals(shopItem.getItemName());
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() == ShopItem.class) {
+            ShopItem other = (ShopItem) obj;
+            return getItemName().equals(other.getItemName())
+                    && getItemPrice() == other.getItemPrice();
         }
         return false;
     }

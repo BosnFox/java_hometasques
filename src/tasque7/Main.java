@@ -25,6 +25,7 @@ public class Main {
         scanner.close();
         DictionaryStatistic skanna = new DictionaryStatistic(words, alefbet);
         System.out.println(skanna.getRandomWord());
-        skanna.WordsGaming("библиотека");
+        // skanna.WordsGaming("библиотека");
+        // skanna.printSymbolsStat();
     }
 }
