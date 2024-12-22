@@ -1,4 +1,4 @@
-package org.src.tasque24;
+package tasque24;
 
 public class User {
     private int id;
@@ -6,6 +6,10 @@ public class User {
     private String email;
     public User(int id, String name, String email) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+    }
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
     }

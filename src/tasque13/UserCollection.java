@@ -1,10 +1,11 @@
-package org.src.tasque13;
+package tasque13;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import tasque13.User;
 
-public class UserCollection // implements java.io.Serializable
+public class UserCollection implements java.io.Serializable
 {
     private String fileName;
     private ArrayList<User> users;

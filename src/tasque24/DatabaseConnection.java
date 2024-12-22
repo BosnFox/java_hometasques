@@ -1,4 +1,4 @@
-package org.src.tasque24;
+package tasque24;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

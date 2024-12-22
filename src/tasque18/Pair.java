@@ -1,4 +1,4 @@
-package org.src.tasque18;
+package tasque18;
 
 public class Pair<String, Integer> {
     private String first;

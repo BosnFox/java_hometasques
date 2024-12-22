@@ -1,4 +1,4 @@
-package org.src.tasque17;
+package tasque17;
 
 public class User {
     @NotNull

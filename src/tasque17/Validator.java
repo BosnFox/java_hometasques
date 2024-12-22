@@ -1,4 +1,4 @@
-package org.src.tasque17;
+package tasque17;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

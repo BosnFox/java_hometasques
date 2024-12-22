@@ -1,4 +1,4 @@
-package org.src.tasque13;
+package tasque13;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         boolean running = true;
         Scanner sc = new Scanner(System.in);
-        UserCollection main = new UserCollection(new ArrayList<User>(), "main");
+        tasque13.UserCollection main = new tasque13.UserCollection(new ArrayList<tasque13.User>(), "main");
         System.out.println("Running options:" +
                 "\n1. Add a new user" +
                 "\n2. Show all users" +
@@ -35,7 +35,7 @@ public class Main {
                     main.saveUsers(main.getUsers());
                     break;
                 case 4:
-                    main = new UserCollection(main.loadUsers(), "main");
+                    // main = new org.src.tasque13.UserCollection(main.loadUsers(), "main");
                     System.out.println("User loaded: ");
                     main.displayUsers();
                     break;
@@ -49,9 +49,9 @@ public class Main {
                     System.out.print("Enter name: ");
                     String name = sc.next();
                     for (int i = 0; i < main.getUsers().toArray().length; i++) {
-                        if (main.getUsers().get(i).getName().equals(name)) {
-                            main.getUsers().remove(i);
-                            break;
+                        // if (main.getUsers().get(i).getName().equals(name)) {
+                           // main.getUsers().remove(i);
+                           // break;
                         }
                     }
                     System.out.println("User removed");
@@ -59,4 +59,4 @@ public class Main {
             }
         }
     }
-}
+

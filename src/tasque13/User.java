@@ -1,4 +1,4 @@
-package org.src.tasque13;
+package tasque13;
 
 public class User implements java.io.Serializable
 {

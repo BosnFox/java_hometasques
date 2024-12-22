@@ -1,5 +1,5 @@
-package org.src.tasque24;
-
+package tasque24;
+import tasque24.User;
 import java.sql.SQLException;
 import java.util.List;
 

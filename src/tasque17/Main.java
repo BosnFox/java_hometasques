@@ -1,4 +1,4 @@
-package org.src.tasque17;
+package tasque17;
 
 public class Main {
     public static void main(String[] args) throws Exception {
