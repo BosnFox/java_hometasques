@@ -1,4 +1,4 @@
-package org.src.tasque12;
+package tasque12;
 
 import java.io.*;
 import java.nio.file.FileVisitResult;
