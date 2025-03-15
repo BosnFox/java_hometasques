@@ -10,7 +10,8 @@ public class ApproverFactory {
                 return new Senior();
             case "M":
                 return new Manager();
+            default:
+                return null;
         }
-        return null;
     }
 }

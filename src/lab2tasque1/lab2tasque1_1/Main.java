@@ -12,7 +12,6 @@ public class Main {
 
         junior.setNextApprover(senior);
         senior.setNextApprover(director);
-        // TODO redo w/ errors & an approver factory
 
         Scanner console = new Scanner(System.in);
         boolean done = false;
