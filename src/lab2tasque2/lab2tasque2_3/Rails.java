@@ -9,7 +9,7 @@ public class Rails {
     public synchronized void trainIncoming() throws InterruptedException {
         System.out.println("train!!!!!!");
         isTrain = !isTrain;
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
         if (!isTrain)
         {
         notifyAll();

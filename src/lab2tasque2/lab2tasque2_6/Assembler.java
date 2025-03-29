@@ -1,23 +1,30 @@
 package lab2tasque2.lab2tasque2_6;
 
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Assembler implements Runnable {
-    private final BlockingQueue<BadBoy> esquewe1;
-    private final BlockingQueue<BadBoy> esquewe2;
-    public Assembler(BlockingQueue<BadBoy> esquewe, BlockingQueue<BadBoy> esquewe2) {
-        this.esquewe1 = esquewe;
-        this.esquewe2 = esquewe2;
+    private final ArrayBlockingQueue<String> workerQueue;
+    private final ArrayBlockingQueue<String> assemblerQueue;
+    String passable;
+    int time;
+    public Assembler(ArrayBlockingQueue<String> workerQueue, ArrayBlockingQueue<String> assemblerQueue) {
+        this.workerQueue = workerQueue;
+        this.assemblerQueue = assemblerQueue;
     }
     @Override
     public void run() {
-        while (esquewe1.size() > 0) {
-            try {
-                BadBoy b = esquewe1.take();
-                Thread.sleep(1000);
-                esquewe2.put(b);
-                System.out.println(b + " put");}
-            catch (InterruptedException e) {}
+        while (true) {
+            try
+            {
+                if (assemblerQueue.size() < 10 && !workerQueue.isEmpty()) {
+                    time = RandomTimer.getTime();
+                    Thread.sleep(time);
+                    passable = workerQueue.take();
+                    assemblerQueue.put(passable);
+                    System.out.println("ASSEMBLED " + passable + ", time spent: " + time + " ms");
+                }
+            }
+            catch (Exception e) {}
         }
     }
 }

@@ -11,4 +11,3 @@ public class Main {
         new Train(rails).start();
     }
 }
-// TODO train doesn't work

@@ -2,14 +2,10 @@ package lab2tasque2.lab2tasque2_5;
 
 public class Doroha {
 
-    private CanGo currentState = CanGo.NO;
+    public CanGo currentState = CanGo.NO;
 
     public Doroha() {
 
-    }
-
-    public synchronized CanGo getCurrentState() {
-        return currentState;
     }
 
     public synchronized void trans() {
@@ -17,8 +13,8 @@ public class Doroha {
         {
             currentState = (currentState == CanGo.YES) ? CanGo.NO : CanGo.YES;
             System.out.println((currentState == CanGo.YES) ? "can go" : "can go noht");
-            Thread.sleep(5000);
             notifyAll();
+            Thread.sleep(1000);
         } catch (Exception e) {}
     }
 
@@ -27,12 +23,13 @@ public class Doroha {
         try
         {
             System.out.println(name + " incomes");
-            while (getCurrentState() == CanGo.NO) {
+            while (currentState == CanGo.NO) {
                 System.out.println(name + " awaits");
                 wait();
             }
-            Thread.sleep(1000);
+            Thread.sleep(100);
             System.out.println("off it goes");
+            notifyAll();
         } catch (Exception e) {}
     }
 }

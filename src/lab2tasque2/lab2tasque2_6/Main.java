@@ -1,22 +1,21 @@
 package lab2tasque2.lab2tasque2_6;
 
-import java.util.concurrent.BlockingDeque;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class Main {
     public static void main(String[] args) {
-        BlockingDeque<BadBoy> stampingBadBoys = new LinkedBlockingDeque<BadBoy>();
-        BlockingDeque<BadBoy> assemblingBadBoys = new LinkedBlockingDeque<BadBoy>();
-        BlockingDeque<BadBoy> operatingBadBoys = new LinkedBlockingDeque<BadBoy>();
+        ArrayBlockingQueue<String> workerQueue = new ArrayBlockingQueue<String>(5);
+        ArrayBlockingQueue<String> assemblerQueue = new ArrayBlockingQueue<String>(5);
+        ArrayBlockingQueue<String> managerQueue = new ArrayBlockingQueue<String>(5);
 
-        ExecutorService exec = Executors.newCachedThreadPool();
+        ExecutorService executor = Executors.newCachedThreadPool();
 
-        exec.submit(new Assembler(stampingBadBoys, assemblingBadBoys));
-        exec.submit(new Operator(assemblingBadBoys, operatingBadBoys));
-        exec.submit(new Stamper(stampingBadBoys));
+        executor.submit(new Worker(workerQueue));
+        executor.submit(new Assembler(workerQueue, assemblerQueue));
+        executor.submit(new Manager(assemblerQueue, managerQueue));
 
-        exec.shutdown();
+        executor.shutdown();
     }
 }
