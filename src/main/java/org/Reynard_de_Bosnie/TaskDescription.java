@@ -1,0 +1,11 @@
+package org.Reynard_de_Bosnie;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+@Retention(RetentionPolicy.RUNTIME)
+public @interface TaskDescription {
+    int taskNumber();
+    String taskDescription() default "No Description provided";
+    String href() default "No reference provided";
+}
