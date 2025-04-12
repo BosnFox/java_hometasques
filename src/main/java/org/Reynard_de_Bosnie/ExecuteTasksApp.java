@@ -20,7 +20,7 @@ public class ExecuteTasksApp {
         for (TaskHolder task : tasks.values()) {
             System.out.println("Номер задачи: " + task.getId() + ": " + task.getDescriptor());
         }
-        System.out.println("ПРОВЕРИТЬ: 14 (и поставить что github приведён в порядок (.   _ .))");
+        System.out.println("ПРОВЕРИТЬ: 14 (и поставить что github приведён в порядок (.     _ .))");
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Введите номер задачи для запуска");
             TaskHolder taskHolder = tasks.get(scanner.nextInt());
